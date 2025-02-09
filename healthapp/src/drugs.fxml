@@ -2,8 +2,10 @@
 
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DrugsController">
    <children>
@@ -12,17 +14,38 @@
         <panes>
           <TitledPane animated="false" text="Acetaminophen">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="5.0" layoutY="5.0" maxWidth="202.0" prefHeight="170.0" prefWidth="190.0" text="Acetaminophen is used to relieve mild to moderate pain from headaches, muscle aches, menstrual periods, colds and sore throats, toothaches, backaches, reactions to vaccinations (shots), and to reduce fever." wrapText="true">
+                           <font>
+                              <Font name="Avenir Roman" size="13.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
             </content>
           </TitledPane>
           <TitledPane animated="false" text="Pepto-Bismol">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="5.0" layoutY="5.0" maxWidth="202.0" prefHeight="170.0" prefWidth="190.0" text="Bismuth subsalicylate is the main ingredient in Pepto-Bismol. This medicine is used for heartburn and acid reflux, indigestion, diarrhoea and feeling sick (nausea). It is also a mild antacid" wrapText="true">
+                           <font>
+                              <Font name="Avenir Roman" size="13.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
             </content>
           </TitledPane>
           <TitledPane animated="false" text="Ibuprofen">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="5.0" layoutY="5.0" maxWidth="202.0" prefHeight="170.0" prefWidth="190.0" text="Prescription ibuprofen is used to relieve pain, tenderness, swelling, and stiffness. It is also used to relieve mild to moderate pain, including menstrual pain. Nonprescription ibuprofen is used to reduce fever and minor aches." wrapText="true">
+                           <font>
+                              <Font name="Avenir Roman" size="13.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
             </content>
           </TitledPane>
         </panes>

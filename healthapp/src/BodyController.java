@@ -44,7 +44,7 @@ public class BodyController {
 
     public void switchSceneHome(ActionEvent e) throws IOException {
         //Load new scene
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main2.fxml")));
 
         //Get the same window the event occured in
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

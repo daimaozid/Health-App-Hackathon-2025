@@ -35,9 +35,6 @@ public class LoginController {
         MainController mc = loader.getController();
         mc.displayName(name);
 
-        //Load new scene
-        //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
-
         //Get the same window the event occured in
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 

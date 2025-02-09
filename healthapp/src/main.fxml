@@ -22,7 +22,7 @@
             <Font name="Arial Black" size="40.0" />
          </font>
       </Text>
-      <Label fx:id="usernameLabel" alignment="CENTER" layoutX="43.0" layoutY="70.0" prefHeight="26.0" prefWidth="144.0" text="Username" textAlignment="CENTER">
+      <Label fx:id="usernameLabel" alignment="TOP_CENTER" cache="true" layoutX="18.0" layoutY="70.0" prefHeight="108.0" prefWidth="194.0" text="Username" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
