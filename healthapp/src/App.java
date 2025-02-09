@@ -27,7 +27,7 @@ public class App extends Application {
 
         //Try catch to catch IOException that may be thrown by FXMLLOADER
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         } catch (Exception e) {
             System.err.println("THIS FAILED!");
         }

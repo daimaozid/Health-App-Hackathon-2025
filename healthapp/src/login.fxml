@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+   <children>
+      <TextField alignment="CENTER" layoutX="35.0" layoutY="160.0" text="Enter Username" />
+      <Text layoutX="39.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="50.0" />
+         </font>
+      </Text>
+      <Text layoutX="42.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DocuMED Copyright 2025" />
+      <Button layoutX="47.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchSceneHome" text="I'm ready to DocuMed" />
+      <PasswordField alignment="CENTER" layoutX="35.0" layoutY="200.0" promptText="Enter Password" />
+      <ImageView fitHeight="71.0" fitWidth="118.0" layoutX="58.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/Users/daisizhe/Documents/healthapp/src/DocuMed.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

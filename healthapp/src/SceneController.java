@@ -20,7 +20,33 @@ public class SceneController {
     //Methods
     public void switchSceneBody(ActionEvent e) throws IOException {
         //Load new scene
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Resources/Scenes/Body.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("body.fxml")));
+
+        //Get the same window the event occured in
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        //Create and set stage to the new scene
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchSceneDrugs(ActionEvent e) throws IOException {
+        //Load new scene
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("drugs.fxml")));
+
+        //Get the same window the event occured in
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        //Create and set stage to the new scene
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchSceneHome(ActionEvent e) throws IOException {
+        //Load new scene
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
 
         //Get the same window the event occured in
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
