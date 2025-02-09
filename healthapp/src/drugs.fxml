@@ -21,6 +21,11 @@
                               <Font name="Avenir Roman" size="13.0" />
                            </font>
                         </Label>
+                        <Label layoutX="75.0" layoutY="164.0" text="Last Prescribed: 2025/02/08">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </TitledPane>
@@ -33,6 +38,11 @@
                               <Font name="Avenir Roman" size="13.0" />
                            </font>
                         </Label>
+                        <Label layoutX="75.0" layoutY="160.0" text="Last Prescribed: 2025/01/24">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </TitledPane>
@@ -43,6 +53,11 @@
                         <Label layoutX="5.0" layoutY="5.0" maxWidth="202.0" prefHeight="170.0" prefWidth="190.0" text="Prescription ibuprofen is used to relieve pain, tenderness, swelling, and stiffness. It is also used to relieve mild to moderate pain, including menstrual pain. Nonprescription ibuprofen is used to reduce fever and minor aches." wrapText="true">
                            <font>
                               <Font name="Avenir Roman" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="77.0" layoutY="164.0" text="Last Prescribed: 2024/11/01">
+                           <font>
+                              <Font size="10.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
