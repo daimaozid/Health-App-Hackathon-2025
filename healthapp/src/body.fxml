@@ -10,7 +10,7 @@
       <Button alignment="CENTER" layoutX="90.0" layoutY="360.0" mnemonicParsing="false" onAction="#switchSceneHome" text="Home" />
       <ImageView fx:id="bodyImage" fitHeight="304.0" fitWidth="131.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/Users/daisizhe/Documents/healthapp/src/skin.png" />
+            <Image url="@skin.png" />
          </image>
       </ImageView>
       <Button alignment="CENTER" layoutX="86.0" layoutY="325.0" mnemonicParsing="false" onAction="#muscleButton" text="Muscle" />
