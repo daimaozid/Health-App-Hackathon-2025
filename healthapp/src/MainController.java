@@ -53,5 +53,17 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
-    
+
+    public void switchSceneReminder(ActionEvent e) throws IOException {
+        // Load new scene
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("reminder.fxml")));
+
+        // Get the same window the event occurred in
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        // Create and set stage to the new scene
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

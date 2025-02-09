@@ -1,0 +1,15 @@
+{
+    "java.project.sourcePaths": [
+        "healthapp\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.controls.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx-swt.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.base.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.swing.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.graphics.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.media.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.fxml.jar",
+        "c:\\Users\\andre\\OneDrive\\Documents\\Java\\openjfx-23.0.2_windows-x64_bin-sdk\\javafx-sdk-23.0.2\\lib\\javafx.web.jar"
+    ]
+}

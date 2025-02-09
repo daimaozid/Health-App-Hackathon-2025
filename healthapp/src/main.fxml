@@ -15,7 +15,7 @@
             <Image url="@DocuMed.png" />
          </image>
       </ImageView>
-      <Button layoutX="185.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneDrugs" text="-&gt;" />
+      <Button layoutX="185.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneReminder" text="-&gt;" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneBody" text="&lt;-" />
       <Text layoutX="15.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
          <font>

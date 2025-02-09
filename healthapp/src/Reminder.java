@@ -6,6 +6,8 @@ import java.util.concurrent.*;
 import java.util.Scanner;
 import java.time.*;
 import java.io.*;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 class Prescription implements Serializable {
     int hour;
@@ -32,40 +34,40 @@ class Prescription implements Serializable {
 }
 
 public class Reminder {
+    private String mode;
+    private ObservableList<String> prescriptions;
 
-    public static void main(String[] args) {
-        if (args.length > 0) {
-            switch (args[0]) {
-                case "setup":
-                    setupMode();
-                    break;
-                case "modify":
-                    modifyMode();
-                    break;
-                case "end":
-                    endMode();
-                    break;
-                case "run":
-                    runNotificationProcess();
-                    break;
-                default:
-                    System.out.println("Invalid mode. Use 'setup', 'modify', 'end', or 'run'.");
-            }
-        } else {
-            System.out.println("Invalid mode. Use 'setup', 'modify', 'end', or 'run'.");
+    public Reminder(String mode, ObservableList<String> prescriptions) {
+        this.mode = mode;
+        this.prescriptions = prescriptions;
+    }
+
+    public void start() {
+        switch (mode.toLowerCase()) {
+            case "setup":
+                setupMode();
+                break;
+            case "modify":
+                modifyMode();
+                break;
+            case "end":
+                endMode();
+                break;
+            case "run":
+                runNotificationProcess();
+                break;
+            default:
+                System.out.println("Invalid mode. Use 'setup', 'modify', 'end', or 'run'.");
         }
     }
 
-    private static void setupMode() {
+    private void setupMode() {
         // Terminate existing notification process if it exists
         endMode();
 
         ArrayList<Prescription> p = new ArrayList<>();
-        System.out.println("Enter your prescriptions in the format 'name hour minute', enter \"done\" when done:");
-        Scanner sc = new Scanner(System.in);
-        String inp;
-        while (!(inp = sc.nextLine()).equals("done")) {
-            String[] parts = inp.split(" ");
+        for (String prescription : prescriptions) {
+            String[] parts = prescription.split(" ");
             if (parts.length != 3) {
                 System.out.println("Invalid format. Please enter in the format 'name hour minute'.");
                 continue;
@@ -87,13 +89,10 @@ public class Reminder {
         startNotificationProcess();
     }
 
-    private static void modifyMode() {
+    private void modifyMode() {
         ArrayList<Prescription> p = loadPrescriptions();
-        System.out.println("Enter your prescriptions to add in the format 'name hour minute', enter \"done\" when done:");
-        Scanner sc = new Scanner(System.in);
-        String inp;
-        while (!(inp = sc.nextLine()).equals("done")) {
-            String[] parts = inp.split(" ");
+        for (String prescription : prescriptions) {
+            String[] parts = prescription.split(" ");
             if (parts.length != 3) {
                 System.out.println("Invalid format. Please enter in the format 'name hour minute'.");
                 continue;
@@ -115,7 +114,7 @@ public class Reminder {
         notifyUpdate();
     }
 
-    private static void endMode() {
+    private void endMode() {
         File file = new File("notification_process.pid");
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -151,7 +150,7 @@ public class Reminder {
         }
     }
 
-    private static void savePrescriptions(ArrayList<Prescription> prescriptions) {
+    private void savePrescriptions(ArrayList<Prescription> prescriptions) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("prescriptions.dat"))) {
             oos.writeObject(prescriptions);
         } catch (IOException e) {
@@ -159,7 +158,7 @@ public class Reminder {
         }
     }
 
-    private static ArrayList<Prescription> loadPrescriptions() {
+    private ArrayList<Prescription> loadPrescriptions() {
         File file = new File("prescriptions.dat");
         if (!file.exists()) {
             System.out.println("No prescriptions found. Please run in setup mode first.");
@@ -179,9 +178,10 @@ public class Reminder {
         return new ArrayList<>();
     }
 
-    private static void startNotificationProcess() {
+    private void startNotificationProcess() {
         try {
-            Process process = new ProcessBuilder("java", "Reminder", "run").start();
+            ProcessBuilder processBuilder = new ProcessBuilder("java", "-cp", System.getProperty("java.class.path"), "Reminder", "run");
+            Process process = processBuilder.start();
             try (PrintWriter writer = new PrintWriter(new FileWriter("notification_process.pid"))) {
                 writer.println(process.pid());
             }
@@ -190,7 +190,7 @@ public class Reminder {
         }
     }
 
-    private static void notifyUpdate() {
+    private void notifyUpdate() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("update_flag.txt"))) {
             writer.println("update");
         } catch (IOException e) {
@@ -198,7 +198,7 @@ public class Reminder {
         }
     }
 
-    private static void runNotificationProcess() {
+    private void runNotificationProcess() {
         ArrayList<Prescription> p = loadPrescriptions();
         if (p.isEmpty()) {
             System.out.println("No prescriptions to schedule.");
@@ -242,9 +242,19 @@ public class Reminder {
                 runNotificationProcess();
             }
         }, 0, 1, TimeUnit.MINUTES);
+
+        // Keep the process alive
+        while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Notification process interrupted: " + e.getMessage());
+                break;
+            }
+        }
     }
 
-    private static TrayIcon createTrayIcon() {
+    private TrayIcon createTrayIcon() {
         // Set the image for the tray icon
         ImageIcon icon = new ImageIcon("path_to_your_icon.png");  // Use your own icon file
         Image image = icon.getImage();
@@ -265,7 +275,7 @@ public class Reminder {
         return trayIcon;
     }
 
-    private static void scheduleDailyNotificationAtTime(Prescription prescription, TrayIcon trayIcon, ScheduledExecutorService scheduler) {
+    private void scheduleDailyNotificationAtTime(Prescription prescription, TrayIcon trayIcon, ScheduledExecutorService scheduler) {
         // Get the current time
         LocalTime now = LocalTime.now();
         LocalTime targetTime = LocalTime.of(prescription.getHour(), prescription.getMinute());
@@ -287,5 +297,11 @@ public class Reminder {
                                     "Time to take your medication!", 
                                     TrayIcon.MessageType.INFO);
         }, initialDelay, TimeUnit.DAYS.toMillis(1), TimeUnit.MILLISECONDS); // Repeat every 24 hours
+    }
+
+    public static void main(String[] args) {
+        if (args.length > 0 && "run".equalsIgnoreCase(args[0])) {
+            new Reminder("run", FXCollections.observableArrayList()).start();
+        }
     }
 }

@@ -6,8 +6,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
    <children>
-      <Button layoutX="185.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneDrugs" text="-&gt;" />
+      <Button layoutX="185.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneReminder" text="-&gt;" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneBody" text="&lt;-" />
+      <Button layoutX="100.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchSceneReminder" text="Reminder" />
       <TextField alignment="CENTER" layoutX="35.0" layoutY="160.0" text="Welcome to DocuMED" />
    </children>
 </AnchorPane>
